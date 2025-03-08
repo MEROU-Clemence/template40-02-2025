@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="{{CurrentLang.IsoLang}}" culture="{{CurrentLang.CultureLang}}">
+<head>
+    <title>{{^IsRestaurant}}{{CurrentPrestation.TitrePresta}}{{/IsRestaurant}}{{#IsRestaurant}}{{ResourcesTemplate.CarteMenus}}{{/IsRestaurant}} - {{CustomTitle}} - {{City}} - {{Country}}</title>
+    <meta name="description" content="{{CurrentPrestation.DescriptionPrestaLength150}}">
+    {{>CommonMetaTags}}
+    <link rel="canonical" href="{{UrlPrestaTemplate}}" />
+    <meta property="og:url" content="{{UrlPrestaTemplate}}" />
+    <meta property="og:title" content="{{^IsRestaurant}}{{CurrentPrestation.TitrePresta}}{{/IsRestaurant}}{{#IsRestaurant}}{{ResourcesTemplate.CarteMenus}}{{/IsRestaurant}}" />
+    <meta property="og:image" content="{{#CurrentPrestation.PhotosPresta.0}}{{UrlMedias}}/crop-300x200/{{IdMedia}}/{{FileNamePhoto}}{{/CurrentPrestation.PhotosPresta.0}}{{^CurrentPrestation.PhotosPresta.0}}{{#Photos.0}}{{UrlMedias}}/crop-300x200/{{IdMedia}}/{{FileNamePhoto}}{{/Photos.0}}{{/CurrentPrestation.PhotosPresta.0}}" />
+    <meta property="og:description" content="{{CurrentPrestation.DescriptionPrestaLength150}}" />
+    {{>FaviconTags}}
+    {{>CommonStylesheets}}
+    {{#HasBookingActivated}}{{>ScriptCalendarClick}}{{/HasBookingActivated}}
+</head>
+<body>
+    {{{ScriptAnalytics}}}
+    {{{GoogleTagManagerBody}}}
+    {{>Header}}
+
+    <main>
+        <!-- SECTION BANNER -->
+        <section class="section-banner section-banner-detail">
+            <div class="content-section">
+
+                <h1 class="big-title">{{^IsRestaurant}}{{CurrentPrestation.TitrePresta}}{{/IsRestaurant}}{{#IsRestaurant}}{{ResourcesTemplate.CarteMenus}}{{/IsRestaurant}}</h1>
+
+                {{#CurrentPrestation.MinPricePresta}}
+                <div class="price-detail">
+                    <span class="price-begin">{{ResourcesTemplate.PriceFrom}}</span>
+                    <span class="presta-price"><strong>{{CurrentPrestation.MinPricePresta}}{{CurrencySymbol}}</strong></span>
+                </div>
+                {{/CurrentPrestation.MinPricePresta}}
+
+            </div>
+        </section>
+
+        <!-- SECTION DETAIL -->
+        <section class="section section-detail">
+            <div class="content-section">
+
+                <!-- SECTION SLIDER -->
+                {{#CurrentPrestation.PhotosPresta.0}}
+                <div class="owl-carousel owl-theme slider-gallery-offer">
+                    {{#CurrentPrestation.PhotosPresta}}
+                    <img class="bg-img" src="{{UrlMedias}}/crop-1600x1200/{{IdMedia}}/{{FileNamePhoto}}" alt="{{NamePhoto}}" itemprop="image">
+                    {{/CurrentPrestation.PhotosPresta}}
+                </div>
+                {{/CurrentPrestation.PhotosPresta.0}}
+
+                <!-- INFOS OFFER -->
+                <div class="infos-detail {{#IsRestaurant}}infos-resto{{/IsRestaurant}}">
+                    {{^isActivity}}
+                    <div class="bloc-infos">
+                        {{#CurrentPrestation.CheckinTime}}
+                        <div class="m-b-10">
+                            <i class="las la-clock i-left"></i><strong>{{ResourcesTemplate.CheckinTime}} : </strong> {{CurrentPrestation.CheckinTimeString}}
+                        </div>
+                        {{/CurrentPrestation.CheckinTime}}
+                        {{#CurrentPrestation.CheckoutTime}}
+                        <div class="m-b-10">
+                            <i class="las la-clock i-left"></i><strong>{{ResourcesTemplate.CheckoutTime}} : </strong> {{CurrentPrestation.CheckoutTimeString}}
+                        </div>
+                        {{/CurrentPrestation.CheckoutTime}}
+                        {{#CurrentPrestation.MaxCapacityPresta}}
+                        <div class="m-b-10">
+                            <i class="las la-user-friends i-left"></i><strong>{{ResourcesTemplate.MaxCapacity}} </strong> {{CurrentPrestation.MaxCapacityPresta}} {{ResourcesTemplate.CapacityPersons}}
+                        </div>
+                        {{/CurrentPrestation.MaxCapacityPresta}}
+                        {{#CurrentPrestation.NbSimpleBeds}}
+                        <div class="m-b-10">
+                            <i class="las la-bed i-left"></i><strong>{{ResourcesTemplate.SimpleBeds}} </strong> {{CurrentPrestation.NbSimpleBeds}}
+                        </div>
+                        {{/CurrentPrestation.NbSimpleBeds}}
+                        {{#CurrentPrestation.NbDoubleBeds}}
+                        <div class="m-b-10">
+                            <i class="las la-bed i-left"></i><strong>{{ResourcesTemplate.DoubleBeds}} </strong> {{CurrentPrestation.NbDoubleBeds}}
+                        </div>
+                        {{/CurrentPrestation.NbDoubleBeds}}
+                        {{#CurrentPrestation.NbKingBeds}}
+                        <div class="m-b-10">
+                            <i class="las la-bed i-left"></i><strong>{{ResourcesTemplate.KingBeds}} </strong> {{CurrentPrestation.NbKingBeds}}
+                        </div>
+                        {{/CurrentPrestation.NbKingBeds}}
+                        {{#CurrentPrestation.NbQueenBeds}}
+                        <div class="m-b-10">
+                            <i class="las la-bed i-left"></i><strong>{{ResourcesTemplate.QueenBeds}} </strong> {{CurrentPrestation.NbQueenBeds}}
+                        </div>
+                        {{/CurrentPrestation.NbQueenBeds}}
+                        {{#CurrentPrestation.NbBunkBeds}}
+                        <div class="m-b-10">
+                            <i class="las la-bed i-left"></i><strong>{{ResourcesTemplate.BunkBeds}} </strong> {{CurrentPrestation.NbBunkBeds}}
+                        </div>
+                        {{/CurrentPrestation.NbBunkBeds}}
+                        {{#CurrentPrestation.NbSofaBeds}}
+                        <div class="m-b-10">
+                            <i class="las la-bed i-left"></i><strong>{{ResourcesTemplate.SofaBeds}} </strong> {{CurrentPrestation.NbSofaBeds}}
+                        </div>
+                        {{/CurrentPrestation.NbSofaBeds}}
+                        {{#CurrentPrestation.NbSofaDoubleBeds}}
+                        <div class="m-b-10">
+                            <i class="las la-bed i-left"></i><strong>{{ResourcesTemplate.SofaDoubleBeds}} </strong> {{CurrentPrestation.NbSofaDoubleBeds}}
+                        </div>
+                        {{/CurrentPrestation.NbSofaDoubleBeds}}
+                        {{#CurrentPrestation.NbMurphyBeds}}
+                        <div class="m-b-10">
+                            <i class="las la-bed i-left"></i><strong>{{ResourcesTemplate.MurphyBeds}} </strong> {{CurrentPrestation.NbMurphyBeds}}
+                        </div>
+                        {{/CurrentPrestation.NbMurphyBeds}}
+                        {{#CurrentPrestation.HasExtraBeds}}
+                        <div class="m-b-10">
+                            <i class="las la-user-plus i-left"></i><strong>{{ResourcesTemplate.ExtraBeds}} </strong> {{ResourcesTemplate.Yes}}
+                        </div>
+                        {{/CurrentPrestation.HasExtraBeds}}
+                        {{#CurrentPrestation.HasBabyBeds}}
+                        <div class="m-b-10">
+                            <i class="las la-baby-carriage i-left"></i><strong>{{ResourcesTemplate.BabyBeds}} </strong> {{ResourcesTemplate.Yes}}
+                        </div>
+                        {{/CurrentPrestation.HasBabyBeds}}
+                    </div>
+                    {{/isActivity}}
+
+                    {{^IsRestaurant}}
+                    {{#isActivity}}
+                    <div class="bloc-infos bloc-infos-activity">
+                        {{#CurrentPrestation.DurationPresta}}
+                        <div class="m-b-10">
+                            <i class="las la-clock"></i><strong>{{ResourcesTemplate.Duration}} : </strong> {{CurrentPrestation.DurationPresta}} {{CurrentPrestation.DurationUnitPresta}}
+                        </div>
+                        {{/CurrentPrestation.DurationPresta}}
+
+                        {{#CurrentPrestation.AgeMinimum}}
+                        <div class="m-b-10">
+                            <i class="las la-birthday-cake"></i><strong>{{ResourcesTemplate.AgeStartingFrom}} : </strong> {{CurrentPrestation.AgeMinimum}}{{#CurrentPrestation.AgeMaximum}} - {{CurrentPrestation.AgeMaximum}}{{/CurrentPrestation.AgeMaximum}}
+                            {{ResourcesTemplate.AgeYears}}
+                        </div>
+                        {{/CurrentPrestation.AgeMinimum}}
+
+                        {{#CurrentPrestation.Difficulty}}
+                        <div class="m-b-10">
+                            <i class="las la-level-up-alt"></i><strong>{{ResourcesTemplate.Difficulty}} : </strong> {{CurrentPrestation.Difficulty}} / 5
+                        </div>
+                        {{/CurrentPrestation.Difficulty}}
+
+                        {{#CurrentPrestation.IsAdultRequired}}
+                        <div class="m-b-10">
+                            <i class="las la-user-check"></i><strong>{{ResourcesTemplate.AdultAccompaniment}} : </strong> {{{ResourcesTemplate.Required}}}
+                        </div>
+                        {{/CurrentPrestation.IsAdultRequired}}
+
+                        <div class="m-b-10">
+                            <i class="las la-calendar-check i-left"></i><strong>{{ResourcesTemplate.Confirmation}} : </strong> {{#CurrentPrestation.HasDelayedConfirmation}} {{ResourcesTemplate.DelayedFemale}} ({{CurrentPrestation.DelayedConfirmationDays}} {{ResourcesTemplate.durationUnit_Day}} {{ResourcesTemplate.MaximumLower}})
+                            {{/CurrentPrestation.HasDelayedConfirmation}}
+                            {{^CurrentPrestation.HasDelayedConfirmation}}{{ResourcesTemplate.Immediate}}
+                            {{/CurrentPrestation.HasDelayedConfirmation}}
+                        </div>
+                    </div>
+                    {{/isActivity}}
+                    {{/IsRestaurant}}
+
+                    <div class="line-in-offer"></div>
+
+                    {{^IsRestaurant}}
+                    <h3>{{ResourcesTemplate.DescriptionTitle}}</h3>
+
+                    <div class="descrip-and-see-more">
+                        <div class="description description-detail">{{{CurrentPrestation.DescriptionPresta}}}</div>
+
+                        <div id="seeMore2" class="more-less-btn-contain">
+                            <a href="#" class="more-less-btn">{{ResourcesTemplate.ReadMore2}}</a>
+                        </div>
+                        <div id="seeLess2" class="more-less-btn-contain">
+                            <a href="#" class="more-less-btn">{{ResourcesTemplate.ShowLess}}</a>
+                        </div>
+                    </div>
+                    {{/IsRestaurant}}
+
+                    {{^IsRestaurant}}
+                    {{#isActivity}}
+                    <div class="bloc-infos bloc-infos-activity">
+                        {{#CurrentPrestation.Included}}
+                        <div class="infos-inclued">
+                            <strong>{{ResourcesTemplate.FormulaIncludes}} : </strong> {{CurrentPrestation.Included}}
+                        </div>
+                        {{/CurrentPrestation.Included}}
+
+                        {{#CurrentPrestation.Excluded}}
+                        <div class="infos-inclued">
+                            <strong>{{ResourcesTemplate.FormulaExcludes}} : </strong> {{CurrentPrestation.Excluded}}
+                        </div>
+                        {{/CurrentPrestation.Excluded}}
+
+                        {{#CurrentPrestation.Equipments}}
+                        <div class="infos-inclued">
+                            <strong>{{ResourcesTemplate.EquipmentToProvide}} : </strong> {{CurrentPrestation.Equipments}}
+                        </div>
+                        {{/CurrentPrestation.Equipments}}
+
+                        {{#CurrentPrestation.Documents}}
+                        <div class="infos-inclued">
+                            <strong>{{ResourcesTemplate.DocumentsToProvide}} : </strong> {{CurrentPrestation.Documents}}
+                        </div>
+                        {{/CurrentPrestation.Documents}}
+                    </div>
+                    {{/isActivity}}
+                    {{/IsRestaurant}}
+
+                    <!-- SECTION MENU -->
+                    {{#IsRestaurant}}
+                    <div class="form-adds-detail-resto">
+                        {{#Prestations}}
+                        <div class="menus-restau">
+                            <div class="text-center">
+                                <h3 class="">{{TitrePresta}}</h3>
+                                {{#AvailableDu}}
+                                <div class="date-menu">
+                                    <i class="las la-calendar"></i>
+                                    <span class="date-os"><strong>{{ResourcesTemplate.MenuAvailable}} {{AvailableDu}}</strong></span>
+                                    <span class="date-os"><strong>{{ResourcesTemplate.DateTo}} {{AvailableAu}}</strong></span>
+                                </div>
+                                {{/AvailableDu}}
+                                <div class="wavy-separator"></div>
+                                <div class="description-menu">{{{DescriptionPresta}}}</div>
+                                {{#Included}}
+                                <div class="enplus">
+                                    <span class="title">{{ResourcesTemplate.MenuIncludes}} : </span>
+                                    <span>{{Included}}</span>
+                                </div>
+                                {{/Included}}
+                                {{#Excluded}}
+                                <div class="enplus">
+                                    <span class="title">{{ResourcesTemplate.MenuExcludes}} : </span>
+                                    <span>{{Excluded}}</span>
+                                </div>
+                                {{/Excluded}}
+                            </div>
+                        </div>
+                        {{/Prestations}}
+                    </div>
+                    {{/IsRestaurant}}
+
+                    <div class="line-in-offer"></div>
+
+                    {{^IsRestaurant}}
+                    {{#isActivity}}
+                    <!-- SECTION MAP -->
+                    <div class="section-meeting-point section-map section-map-in-around">
+                        <h3>{{ResourcesTemplate.MeetingPoint}}</h3>
+
+                        {{#CurrentPrestation.RdvCity}}
+                        <div class="address-line">{{CustomTitle}}, {{#CurrentPrestation.RdvStreet1}}{{CurrentPrestation.RdvStreet1}}, {{/CurrentPrestation.RdvStreet1}} {{#CurrentPrestation.RdvStreet2}}{{CurrentPrestation.RdvStreet2}}, {{/CurrentPrestation.RdvStreet2}} {{CurrentPrestation.RdvPostalCode}}, {{CurrentPrestation.RdvCity}}, {{Country}}</div>
+                        {{/CurrentPrestation.RdvCity}}
+
+                        {{^CurrentPrestation.RdvCity}}
+                        <div class="address-line">{{CustomTitle}}, {{AddressLine}}, {{PostalCode}} - {{City}} - {{Country}}</div>
+                        {{/CurrentPrestation.RdvCity}}
+
+                        <div id="applemapkit" class="fullwidth-mapkit">
+                            {{#CurrentPrestation.RdvX}}
+                            <input class="button-localisation" type="hidden" id="Meeting-point-geo" data-lat="{{CurrentPrestation.RdvX}}" data-lng="{{CurrentPrestation.RdvY}}">
+                            {{/CurrentPrestation.RdvX}}
+
+                            <div id="mapApple" class="detail-applemapkit"></div>
+
+                            <div data-action="external-map" class="external-map btn-map"><i class="las la-map-marked-alt"></i></div>
+                        </div>
+                    </div>
+                    {{/isActivity}}
+                    {{/IsRestaurant}}
+
+                    <!-- SECTION SCEA -->
+                    {{#CurrentPrestation.SCEAPresta.0}}
+                    <h3>{{ResourcesTemplate.ComfortAndServicesDisposal}}</h3>
+
+                    <div class="scea-in-details">
+                        <div class="options-scea options-scea-details">
+                            {{#CurrentPrestation.SCEAPresta}}
+                            <span>{{LibelleService}}</span>
+                            {{/CurrentPrestation.SCEAPresta}}
+
+                            <div id="seeMore3" class="more-less-btn-contain">
+                                <a href="#" class="more-less-btn">{{ResourcesTemplate.ToSeeMore}}</a>
+                            </div>
+                            <div id="seeLess3" class="more-less-btn-contain">
+                                <a href="#" class="more-less-btn">{{ResourcesTemplate.ToSeeLess}}</a>
+                            </div>
+                        </div>
+                    </div>
+                    {{/CurrentPrestation.SCEAPresta.0}}
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION RESA -->
+        <!-- SECTION WIDGET + CALENDAR -->
+        <section class="section section-widget-and-calendar">
+            <div class="content-section">
+
+                <h2>{{ResourcesTemplate.BookNow}} !</h2>
+
+                <!-- WIDGET -->
+                {{#HasBookingActivated}}
+                <div id="section-BE" class="section-BE-home section-BE-online-resa">
+                    <div class="check-availability">
+                        <div class="rounded-box">
+                            {{>Widget-BE}}
+                            {{>Widget-BE-secure}}
+                        </div>
+                    </div>
+                </div>
+                {{/HasBookingActivated}}
+
+                <!-- CALENDAR -->
+                {{#HasCalendarActivated}}
+                <div class="calendars">
+                    <div class="avail-calendar-w">
+                        <div class="calendar-container">
+                            <div id="datepicker2"></div>
+                        </div>
+                    </div>
+                    <div class="calendar_status">
+                        <div>
+                            <div class="green-dispo">-</div>
+                            <span>{{ResourcesTemplate.Available}}</span>
+                        </div>
+                        <div>
+                            <div class="red-no-dispo">-</div>
+                            <span class="not-available">{{ResourcesTemplate.NotAvailable}}</span>
+                        </div>
+                    </div>
+                </div>
+                {{/HasCalendarActivated}}
+
+            </div>
+        </section>
+
+        <!-- SECTION PRESTAS/OFFRES -->
+        {{^IsRestaurant}}
+        {{#CurrentPrestation.HasOtherPrestations}}
+        <section class="section section-prestas section-prestas-in-offer">
+            <div class="content-section">
+
+                <div class="title-and-presta-1">
+                    <a href="{{UrlOffers}}" class="section-title section-title-prestas section-title-prestas-in-offer">
+                        <div class="opacity-3">
+                            {{^isActivity}}
+                            <h2>{{ResourcesTemplate.Offers_OurOtherOffers_2}}</h2>
+                            {{/isActivity}}
+                            {{#isActivity}}
+                            <h2>{{ResourcesTemplate.Offers_OurOtherOffers_5}}</h2>
+                            {{/isActivity}}
+                        </div>
+                    </a>
+
+                    <div class="prestas-1-2-offer presta-contain-1 owl-carousel owl-theme slider-other-offers">
+                        {{#CurrentPrestation.OtherPrestations}}
+                        <div class="presta-contain" style="background-image: url({{#PhotosPresta.0}}{{UrlMedias}}/crop-1230x1230/{{IdMedia}}/{{FileNamePhoto}}{{/PhotosPresta.0}}); " draggable="false">
+                            <div class="infos-contain">
+                                <h3><a href="{{UrlPrestaTemplate}}" itemprop="url">{{TitrePresta}}</a></h3>
+
+                                <div class="description-presta">{{DescriptionPrestaLength150}}</div>
+
+                                {{#MinPricePresta}}
+                                <div class="saw-prices">
+                                    <span class="price-begin"><strong>{{ResourcesTemplate.PriceFrom}}</strong></span>
+                                    <span class="presta-price">
+                                        <span class="price-price"><strong>{{MinPricePresta}}{{CurrencySymbol}}</strong></span>{{^isActivity}}<strong> /{{ResourcesTemplate.Night}}</strong>{{/isActivity}}
+                                    </span>
+                                </div>
+                                {{/MinPricePresta}}
+                            </div>
+                        </div>
+                        {{/CurrentPrestation.OtherPrestations}}
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        {{/CurrentPrestation.HasOtherPrestations}}
+        {{/IsRestaurant}}
+
+        <!-- SECTION OPTIONS -->
+        {{#HasOptions}}
+        <section class="section section-options">
+            <div class="content-section">
+
+                <div class="section-title section-title-prestas">
+                    <h2>{{ResourcesTemplate.ForYourConfort}}</h2>
+                </div>
+
+                <div class="owl-carousel owl-theme slider-options">
+                    {{#Options}}
+                    <div class="presta-contain presta-contain-options" style="background-image: url({{#PhotosPresta.0}}{{UrlMedias}}/crop-600x800/{{IdMedia}}/{{FileNamePhoto}}{{/PhotosPresta.0}}); " draggable="false">
+
+                        <div class="infos-contain">
+                            <div class="title-and-promo">
+                                <h3>{{TitrePresta}}</h3>
+
+                                <svg class="custom-svg-2" xmlns="http://www.w3.org/2000/svg" width="24" height="30" viewBox="0 0 24 30" fill="none">
+                                    <path class="custom-path-color-2" fill-rule="evenodd" clip-rule="evenodd" d="M22.8575 5.26089C22.771 5.64747 22.4169 5.8997 22.0666 5.82426C19.6321 5.29992 17.9032 6.07489 16.6367 7.41279C15.333 8.78996 14.4724 10.8178 13.9418 12.8419C13.8414 13.2252 13.479 13.4622 13.1325 13.3714C12.7859 13.2806 12.5865 12.8963 12.6869 12.513C13.2477 10.3734 14.1968 8.05507 15.7524 6.41177C17.3452 4.72921 19.525 3.80944 22.38 4.42433C22.7302 4.49977 22.944 4.87431 22.8575 5.26089Z" fill="#EDCEA5" />
+                                    <path class="custom-path-color-2" d="M13.4585 25.348C12.9684 27.2178 11.0553 28.3363 9.18548 27.8462C7.31565 27.3561 6.19717 25.443 6.68728 23.5731C7.17739 21.7033 9.0905 20.5848 10.9603 21.0749C12.8302 21.565 13.9486 23.4781 13.4585 25.348Z" fill="#EDCEA5" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.40734 26.9998C10.8097 27.3674 12.2445 26.5285 12.6121 25.1261C12.9797 23.7237 12.1409 22.2889 10.7385 21.9213C9.33611 21.5537 7.90127 22.3926 7.53369 23.795C7.16611 25.1974 8.00497 26.6322 9.40734 26.9998ZM9.18548 27.8462C11.0553 28.3363 12.9684 27.2178 13.4585 25.348C13.9486 23.4781 12.8302 21.565 10.9603 21.0749C9.0905 20.5848 7.17739 21.7033 6.68728 23.5731C6.19717 25.443 7.31565 27.3561 9.18548 27.8462Z" fill="white" />
+                                    <path class="custom-path-color-2" d="M17.3747 22.2382C16.8845 24.1081 14.7549 25.1698 12.6179 24.6097C10.481 24.0495 9.14596 22.0797 9.63607 20.2098C10.1262 18.34 12.2558 17.2783 14.3928 17.8384C16.5297 18.3985 17.8648 20.3684 17.3747 22.2382Z" fill="#EDCEA5" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12.8398 23.7633C14.4425 24.1834 16.0397 23.3871 16.4073 21.9847C16.7749 20.5823 15.7736 19.1049 14.1709 18.6848C12.5682 18.2647 10.971 19.061 10.6034 20.4634C10.2358 21.8658 11.2371 23.3432 12.8398 23.7633ZM12.6179 24.6097C14.7549 25.1698 16.8845 24.1081 17.3747 22.2382C17.8648 20.3684 16.5297 18.3985 14.3928 17.8384C12.2558 17.2783 10.1262 18.34 9.63607 20.2098C9.14596 22.0797 10.481 24.0495 12.6179 24.6097Z" fill="white" />
+                                    <path class="custom-path-color-2" d="M11.5707 20.7152C11.0806 22.585 9.1675 23.7035 7.29767 23.2134C5.42784 22.7233 4.30935 20.8101 4.79946 18.9403C5.28958 17.0705 7.20269 15.952 9.07252 16.4421C10.9423 16.9322 12.0608 18.8453 11.5707 20.7152Z" fill="#EDCEA5" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M7.51952 22.367C8.9219 22.7345 10.3567 21.8957 10.7243 20.4933C11.0919 19.0909 10.253 17.6561 8.85066 17.2885C7.44829 16.9209 6.01345 17.7598 5.64587 19.1622C5.27829 20.5645 6.11715 21.9994 7.51952 22.367ZM7.29767 23.2134C9.1675 23.7035 11.0806 22.585 11.5707 20.7152C12.0608 18.8453 10.9423 16.9322 9.07252 16.4421C7.20269 15.952 5.28958 17.0705 4.79946 18.9403C4.30935 20.8101 5.42784 22.7233 7.29767 23.2134Z" fill="white" />
+                                    <path class="custom-path-color-2" d="M9.9365 15.1175C9.44639 16.9873 7.53328 18.1058 5.66345 17.6157C3.79362 17.1256 2.67514 15.2125 3.16525 13.3427C3.65536 11.4728 5.56847 10.3543 7.4383 10.8445C9.30813 11.3346 10.4266 13.2477 9.9365 15.1175Z" fill="#EDCEA5" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.88531 16.7693C7.28768 17.1369 8.72251 16.298 9.0901 14.8957C9.45768 13.4933 8.61882 12.0584 7.21645 11.6909C5.81407 11.3233 4.37924 12.1621 4.01166 13.5645C3.64407 14.9669 4.48293 16.4017 5.88531 16.7693ZM5.66345 17.6157C7.53328 18.1058 9.44639 16.9873 9.9365 15.1175C10.4266 13.2477 9.30813 11.3346 7.4383 10.8445C5.56847 10.3543 3.65536 11.4728 3.16525 13.3427C2.67514 15.2125 3.79362 17.1256 5.66345 17.6157Z" fill="white" />
+                                    <path class="custom-path-color-2" d="M20.5771 17.9066C20.087 19.7764 18.1738 20.8949 16.304 20.4048C14.4342 19.9147 13.3157 18.0016 13.8058 16.1317C14.2959 14.2619 16.209 13.1434 18.0789 13.6335C19.9487 14.1236 21.0672 16.0367 20.5771 17.9066Z" fill="#EDCEA5" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M16.5259 19.5584C17.9282 19.926 19.3631 19.0871 19.7307 17.6847C20.0982 16.2823 19.2594 14.8475 17.857 14.4799C16.4546 14.1123 15.0198 14.9512 14.6522 16.3536C14.2846 17.756 15.1235 19.1908 16.5259 19.5584ZM16.304 20.4048C18.1738 20.8949 20.087 19.7764 20.5771 17.9066C21.0672 16.0367 19.9487 14.1236 18.0789 13.6335C16.209 13.1434 14.2959 14.2619 13.8058 16.1317C13.3157 18.0016 14.4342 19.9147 16.304 20.4048Z" fill="white" />
+                                    <path class="custom-path-color-2" d="M15.7405 16.6409C15.2503 18.5108 13.3372 19.6293 11.4674 19.1392C9.59758 18.649 8.47909 16.7359 8.9692 14.8661C9.45931 12.9963 11.3724 11.8778 13.2423 12.3679C15.1121 12.858 16.2306 14.7711 15.7405 16.6409Z" fill="#EDCEA5" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M11.6893 18.2927C13.0916 18.6603 14.5265 17.8215 14.8941 16.4191C15.2616 15.0167 14.4228 13.5819 13.0204 13.2143C11.618 12.8467 10.1832 13.6856 9.81561 15.088C9.44803 16.4903 10.2869 17.9252 11.6893 18.2927ZM11.4674 19.1392C13.3372 19.6293 15.2503 18.5108 15.7405 16.6409C16.2306 14.7711 15.1121 12.858 13.2423 12.3679C11.3724 11.8778 9.45931 12.9963 8.9692 14.8661C8.47909 16.7359 9.59758 18.649 11.4674 19.1392Z" fill="white" />
+                                    <path class="custom-path-color-2" d="M14.9468 11.7805C14.3867 13.9175 12.2002 15.1957 10.0633 14.6356C7.92635 14.0755 6.64808 11.8891 7.20821 9.7521C7.76834 7.61515 9.95475 6.33689 12.0917 6.89701C14.2287 7.45714 15.5069 9.64355 14.9468 11.7805Z" fill="#EDCEA5" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M10.3169 13.6683C11.9196 14.0884 13.5594 13.1297 13.9795 11.527C14.3996 9.92424 13.4409 8.28443 11.8382 7.86434C10.2354 7.44424 8.59563 8.40294 8.17553 10.0057C7.75544 11.6084 8.71414 13.2482 10.3169 13.6683ZM10.0633 14.6356C12.2002 15.1957 14.3867 13.9175 14.9468 11.7805C15.5069 9.64355 14.2287 7.45714 12.0917 6.89701C9.95475 6.33689 7.76834 7.61515 7.20821 9.7521C6.64808 11.8891 7.92635 14.0755 10.0633 14.6356Z" fill="white" />
+                                    <path class="custom-path-color-2" d="M19.7834 13.0461C19.2233 15.1831 17.0369 16.4613 14.8999 15.9012C12.763 15.3411 11.4847 13.1547 12.0448 11.0177C12.6049 8.88078 14.7914 7.60251 16.9283 8.16264C19.0653 8.72277 20.3435 10.9092 19.7834 13.0461Z" fill="#EDCEA5" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M15.1535 14.9339C16.7562 15.354 18.396 14.3953 18.8161 12.7926C19.2362 11.1899 18.2775 9.55006 16.6748 9.12996C15.072 8.70986 13.4322 9.66856 13.0121 11.2713C12.592 12.874 13.5507 14.5138 15.1535 14.9339ZM14.8999 15.9012C17.0369 16.4613 19.2233 15.1831 19.7834 13.0461C20.3435 10.9092 19.0653 8.72277 16.9283 8.16264C14.7914 7.60251 12.6049 8.88078 12.0448 11.0177C11.4847 13.1547 12.763 15.3411 14.8999 15.9012Z" fill="white" />
+                                </svg>
+                            </div>
+
+                            {{#DescriptionPresta}}
+                            <div class="description-presta">{{{DescriptionPresta}}}</div>
+                            {{/DescriptionPresta}}
+
+                            <div class="price-and-btn-buy">
+                                <div class="saw-prices saw-prices-options">
+                                    {{#MinPricePresta}}
+                                    <span class="presta-price">
+                                        <span class="price-price"><strong>{{MinPricePresta}}{{CurrencySymbol}}</strong></span>
+                                    </span>
+                                    {{/MinPricePresta}}
+                                </div>
+
+                                <a href="{{{UrlBECustom}}}/Search/Index/{{IdPubBe}}?idoi={{IdOi}}&searchFirstAvailableDates=1&culture={{CurrentLang.CultureLang}}&forcedTemplate={{UrlTemplateBE}}" itemprop="url" class="btn-contain">
+                                    <span class="btn">{{ResourcesTemplate.Buy}}</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {{/Options}}
+                </div>
+
+            </div>
+        </section>
+        {{/HasOptions}}
+
+        <!-- SECTION OFFRES SPECIALES -->
+        {{#HasSpecialOffers}}
+        <section class="section section-special-offers">
+            <div class="content-section">
+
+                <a href="{{UrlSpecialOffers}}" class="section-title section-title-prestas">
+                    <div class="opacity-3">
+                        <h2>{{ResourcesTemplate.pageMenuTitle_special-offers}}</h2>
+                    </div>
+                </a>
+
+                <div class="owl-carousel owl-theme slider-special-offers">
+                    {{#SpecialOffers}}
+                    <div class="presta-contain presta-contain-special-offers" draggable="false">
+                        {{#FirstPhotoSpecialOffer}}
+                        <img class="bg-img" src="{{UrlMedias}}/crop-900x600/{{IdMedia}}/{{FileNamePhoto}}" alt="{{NamePhoto}}">
+                        {{/FirstPhotoSpecialOffer}}
+                        {{^FirstPhotoSpecialOffer}}
+                        <img class="bg-img" src="https://static.elloha.com/webgen/img/special-offer.png" alt="{{NamePhoto}}">
+                        {{/FirstPhotoSpecialOffer}}
+
+                        <div class="infos-contain">
+                            <div class="title-and-promo">
+                                <h3><a href="{{UrlSpecialOffers}}" itemprop="url">{{TitleSpecialOffer}}</a></h3>
+
+                                {{#AmountPromo}}
+                                <div class="presta-price-special-offers-contain">
+                                    <span class="presta-price-special-offers">{{SignPromo}}{{AmountPromo}}{{UnitPromo}}</span>
+                                </div>
+                                {{/AmountPromo}}
+                            </div>
+
+                            <div class="special-offer-related">
+                                <strong>{{ResourcesTemplate.Valid}}</strong> <span class="lowercase"><strong>{{ResourcesTemplate.For}}</strong></span><strong> :</strong>
+                                {{#PrestasSpecialOfferList}}{{TitrePresta}}<span class="separator">|</span>{{/PrestasSpecialOfferList}}
+                            </div>
+
+                            <div class="infos-dates-special-offers">
+                                {{^IsEarlyBirdOrLastMinute}}
+                                {{#DateFromSpecialOfferString}}
+                                <div class="date-os">{{ResourcesTemplate.DateFrom}}</div>
+                                <div class="date-os date-os-strong">{{DateFromSpecialOfferString}}</div>
+                                <div class="date-os">{{ResourcesTemplate.DateTo}} </div>
+                                {{/DateFromSpecialOfferString}}
+
+                                {{^DateFromSpecialOfferString}}
+                                {{#DateToSpecialOfferString}}
+                                <div class="date-os">{{ResourcesTemplate.DateUntil}} </div>
+                                {{/DateToSpecialOfferString}}
+                                {{/DateFromSpecialOfferString}}
+
+                                {{#DateToSpecialOfferString}}
+                                <div class="date-os date-os-strong">{{DateToSpecialOfferString}}</div>
+                                {{/DateToSpecialOfferString}}
+
+                                <div class="date-os">{{DeadlineStringSpecialOffer}}</div>
+                                {{/IsEarlyBirdOrLastMinute}}
+
+                                {{#LastMinute}}
+                                <div class="date-os">{{ResourcesTemplate.RightNow}}</div>
+                                {{/LastMinute}}
+                                {{#EarlyBird}}
+                                <div class="date-os">{{ResourcesTemplate.BookEarly}}</div>
+                                {{/EarlyBird}}
+                                {{#MinStayStringSpecialOffer}}
+                                <div>{{MinStayStringSpecialOffer}}</div>
+                                {{/MinStayStringSpecialOffer}}
+                            </div>
+                        </div>
+                    </div>
+                    {{/SpecialOffers}}
+                </div>
+
+            </div>
+        </section>
+        {{/HasSpecialOffers}}
+
+        <!-- SECTION NEWSLETTER -->
+        {{#HasNewsletterActivated}}
+        {{>Newsletter2}}
+        {{/HasNewsletterActivated}}
+    </main>
+
+    {{>Footer}}
+    {{>CommonScripts}}
+    
+</body>
+</html>

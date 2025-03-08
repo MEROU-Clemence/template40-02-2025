@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="{{CurrentLang.IsoLang}}" culture="{{CurrentLang.CultureLang}}">
+<head>
+    <title>{{CurrentGroupePrestation.TitreGroupe}} - {{CustomTitle}} - {{City}} - {{Country}}</title>
+    <meta name="description" content="{{CustomTitle}} - {{CurrentGroupePrestation.TitreGroupe}}">
+    {{>CommonMetaTags}}
+    <link rel="canonical" href="{{UrlOffers}}" />
+    <meta property="og:url" content="{{UrlOffers}}" />
+    <meta property="og:title" content="{{CurrentGroupePrestation.TitreGroupe}}" />
+    <meta property="og:image" content="{{#Photos.0}}{{UrlMedias}}/crop-300x200/{{IdMedia}}/{{FileNamePhoto}}{{/Photos.0}}" />
+    <meta property="og:description" content="{{CustomTitle}} - {{CurrentGroupePrestation.TitreGroupe}}" />
+    {{>FaviconTags}}
+    {{>CommonStylesheets}}
+</head>
+
+<body>
+    {{{ScriptAnalytics}}}
+    {{{GoogleTagManagerBody}}}
+    {{>Header}}
+
+    <main>
+        <!-- SECTION BANNER -->
+        <section class="section-banner">
+            <div class="content-section">
+
+                <h1 class="big-title">{{CurrentGroupePrestation.TitreGroupe}}</h1>
+
+            </div>
+        </section>
+
+        <!-- SECTION GROUPE -->
+        <section class="section section-all-offers">
+            <div class="content-section">
+
+                <div class="prestas-big-contain">
+                    {{#CurrentGroupePrestation.PrestasGroupe}}
+                    <div class="presta-contain">
+                        {{#PhotosPresta.0}}
+                        <img class="bg-img img-in-offers" src="{{UrlMedias}}/crop-900x700/{{IdMedia}}/{{FileNamePhoto}}" alt="{{NamePhoto}}">
+                        {{/PhotosPresta.0}}
+
+                        <div class="infos-contain">
+                            <h2><a href="{{UrlPrestaTemplate}}" itemprop="url">{{TitrePresta}}</a></h2>
+
+                            {{#DescriptionPresta}}
+                            <div class="description-presta">{{{DescriptionPresta}}}</div>
+                            {{/DescriptionPresta}}
+
+
+                            {{#MinPricePresta}}
+                            <div class="saw-prices {{^IsRestaurant}}{{#isActivity}}saw-with-time{{/isActivity}}{{/IsRestaurant}}">
+                                {{^IsRestaurant}}
+                                {{#isActivity}}
+                                {{#DurationPresta}}
+                                <div class="infos-base-line">
+                                    <i class="las la-clock"></i>
+                                    <div>{{DurationResume}}</div>
+                                </div>
+                                {{/DurationPresta}}
+                                {{/isActivity}}
+                                {{/IsRestaurant}}
+
+                                <div>
+                                    <span class="price-begin"><strong>{{ResourcesTemplate.PriceFrom}}</strong></span>
+                                    <span class="presta-price">
+                                        <span class="price-price"><strong>{{MinPricePresta}}{{CurrencySymbol}}</strong></span>{{^isActivity}}<strong> /{{ResourcesTemplate.Night}}</strong>{{/isActivity}}
+                                    </span>
+                                </div>
+                            </div>
+                            {{/MinPricePresta}}
+                        </div>
+                    </div>
+                    {{/CurrentGroupePrestation.PrestasGroupe}}
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    {{>Footer}}
+    {{>CommonScripts}}
+    
+</body>
+
+</html>

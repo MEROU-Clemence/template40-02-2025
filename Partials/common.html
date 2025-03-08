@@ -1,0 +1,464 @@
+{{< CommonMetaTags}}
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta id="Meta-lang" http-equiv="content-language" content="{{CurrentLang.IsoLang}}" data-date-format="{{JsDateFormatForBe}}">
+{{{PixelFacebook}}}
+{{{GoogleTagManagerHead}}}
+{{/CommonMetaTags}}
+
+{{< FaviconTags}}
+<link rel="shortcut icon" type="image/x-icon" href="{{Url}}/{{FaviconName}}" />
+{{/FaviconTags}}
+
+{{< CommonStylesheets}}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="{{TitlePoliceImportUrl}}" rel="stylesheet">
+<link href="{{TextPoliceImportUrl}}" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@flaticon/flaticon-uicons/css/all/all.css">
+<link rel="stylesheet" type="text/css" href="https://static.elloha.com/webgen/css/line-awesome/line-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="https://static.elloha.com/webgen/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="https://static.elloha.com/webgen/css/fa-brands.min.css">
+<link rel="stylesheet" type="text/css" href="https://static.elloha.com/webgen/css/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="https://static.elloha.com/webgen/css/bootstrap/bootstrap-min.css">
+<link rel="stylesheet" type="text/css" href="https://static.elloha.com/webgen/css/owl.carousel.2.3.4.min.css">
+<link rel="stylesheet" type="text/css" href="https://static.elloha.com/webgen/css/owl.theme.default.2.3.4.min.css">
+<link rel="stylesheet" type="text/css" href="https://static.elloha.com/webgen/css/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="https://static.elloha.com/webgen/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-daterangepicker/3.0.5/daterangepicker.css">
+<link rel="stylesheet" type="text/css" href="{{Url}}/css/common.min.css?v={{TemplateName}}_{{CacheVar}}">
+<link rel="stylesheet" type="text/css" href="{{Url}}/css/elloha-template-40.min.css?v={{TemplateName}}_{{CacheVar}}">
+<link rel="stylesheet" type="text/css" href="{{Url}}/css/custom.css?v={{TemplateName}}_{{CacheVar}}">
+{{/CommonStylesheets}}
+
+{{< CommonScripts}}
+<script type="text/javascript" src="https://static.elloha.com/webgen/js/jquery-2.2.4.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://static.elloha.com/webgen/js/plugins.min.js"></script>
+<script type="text/javascript" src="https://static.elloha.com/webgen/js/bootstrap/bootstrap-min.js"></script>
+<script type="text/javascript" src="https://static.elloha.com/webgen/js/owl.carousel.2.3.4.min.js"></script>
+<script type="text/javascript" src="https://static.elloha.com/webgen/js/mandrill/mandrill.min.js"></script>
+<script src="https://cdn.apple-mapkit.com/mk/5.x.x/mapkit.core.js" crossorigin async data-callback="initMapKit" data-libraries="map" data-initial-token="{{TokenMapKit}}"></script>
+<script type="text/javascript" src="https://static.elloha.com/webgen/js/skycons.min.js"></script>
+<script type="text/javascript" src="https://static.elloha.com/webgen/js/lightgallery-all.min.js"></script>
+<script type="text/javascript" src="{{Url}}/js/config.js?v={{Template}}_{{CacheVar}}"></script>
+<script type="text/javascript" src="https://static.elloha.com/webgen/js/jquery.countdown.min.js"></script>
+<script type="text/javascript" src="https://static.elloha.com/webgen/js/jquery.fittext.min.js"></script>
+<script type="text/javascript" src="https://static.elloha.com/webgen/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="https://static.elloha.com/webgen/js/jquery.ebcaptcha.min.js"></script>
+<script type="text/javascript" src="https://static.elloha.com/webgen/js/masonry.pkgd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-daterangepicker/3.0.5/daterangepicker.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<script type="text/javascript" src="{{Url}}/js/common.min.js"></script>
+<script type="text/javascript" src="{{Url}}/js/elloha-template-40.min.js"></script>
+<script type="text/javascript" src="https://static.elloha.com/webgen/js/newcookieconsent.min.js"></script>
+<script src="https://js.hcaptcha.com/1/api.js"></script>
+{{/CommonScripts}}
+
+{{< ScriptCalendarClick}}
+<script>
+    var onAvailableDateSelect = function () {
+        var dpWidget = window.widgetDatePicker["ConstellationWidgetContainerBE"];
+
+        if (dpWidget === null || dpWidget === undefined) {
+            return;
+        }
+
+        dpWidget.setDate(this.getMoment()._d);
+        $('#ConstellationWidgetContainerBE #BtnLaunchBooking').trigger('click');
+    };
+</script>
+{{/ScriptCalendarClick}}
+
+{{< Header}}
+<header class="first-nav first-nav-other-pages">
+    <div class="content-header content-header-other-pages">
+
+        <div class="contacts-header-and-lang">
+            {{#HasPhoneNumberActivated}}
+            <a class="menu-not-fixed" href="tel:{{PhoneNumber}}"><i class="las la-phone"></i></a>
+            {{/HasPhoneNumberActivated}}
+
+            <a class="menu-not-fixed dynamic-mail-to"><i class="las la-envelope"></i></a>
+
+            <a href="{{UrlContact}}" class="contact-menu-desktop"><i class="las la-at"></i></a>
+
+            <div class="menu-fixed">
+                {{#HasBookingActivated}}
+                <a href="{{UrlOnlineBooking}}"><i class="las la-calendar-check"></i></a>
+                {{/HasBookingActivated}}
+
+                {{#HasOtherLangs}}
+                <div class="dropdown languages languages-mobile">
+                    <div class="dropdown-div" data-toggle="dropdown">
+                        <i class="fa fa-globe"></i>
+                    </div>
+                    <ul class="dropdown-menu">
+                        {{#Langs}}
+                        <li><a href="{{UrlLang}}" lang="{{IsoLang}}"><div class="flag">{{IsoLang}}</div></a></li>
+                        {{/Langs}}
+                    </ul>
+                </div>
+                {{/HasOtherLangs}}
+            </div>
+        </div>
+
+        <div class="logo-and-menu-around-desktop">
+
+            {{#HasPages}}
+            <div class="dropdown menu-header-li">
+                <a class="principal-item-menu" data-toggle="dropdown" href="#">{{ResourcesTemplate.discover}}</a>
+                <ul class="dropdown-menu sub-menu">
+                    {{#Pages}}
+                    <li><a href="{{UrlPageTemplate}}">{{TitlePage}}</a></li>
+                    {{/Pages}}
+                </ul>
+            </div>
+            {{/HasPages}}
+
+            {{#HasGroupesPrestations}}
+            <div class="dropdown menu-header-li">
+                <a class="principal-item-menu" data-toggle="dropdown" href="#">{{^isActivity}}{{ResourcesTemplate.Offers_MenuTitle}}{{/isActivity}}{{#isActivity}}{{ResourcesTemplate.Offers_MenuTitle_5}}{{/isActivity}}</a>
+                <ul class="dropdown-menu sub-menu">
+                    {{#ViewAllOffers}}
+                    <li><a href="{{UrlOffers}}">{{^isActivity}}{{ResourcesTemplate.Offers_ViewAll}}{{/isActivity}}{{#isActivity}}{{ResourcesTemplate.SeeAllOurActivities}}{{/isActivity}}</a> </li>
+                    {{/ViewAllOffers}}
+                    {{#GroupesPrestations}}
+                    <li><a href="{{UrlGroupe}}">{{TitreGroupe}}</a></li>
+                    {{/GroupesPrestations}}
+                </ul>
+            </div>
+            {{/HasGroupesPrestations}}
+            {{^IsRestaurant}}
+            {{^HasGroupesPrestations}}
+            {{#HasPrestas}}
+            {{#Prestations.1}}
+            <div class="dropdown menu-header-li">
+                <a class="principal-item-menu" data-toggle="dropdown" href="#">{{^isActivity}}{{ResourcesTemplate.Offers_MenuTitle}}{{/isActivity}}{{#isActivity}}{{ResourcesTemplate.Offers_MenuTitle_5}}{{/isActivity}}</a>
+                <ul class="dropdown-menu sub-menu">
+                    {{#ViewAllOffers}}
+                    <li><a href="{{UrlOffers}}">{{^isActivity}}{{ResourcesTemplate.Offers_ViewAll}}{{/isActivity}}{{#isActivity}}{{ResourcesTemplate.SeeAllOurActivities}}{{/isActivity}}</a> </li>
+                    {{/ViewAllOffers}}
+                    {{#Prestations}}
+                    <li><a href="{{UrlPrestaTemplate}}">{{TitrePresta}}</a></li>
+                    {{/Prestations}}
+                </ul>
+            </div>
+            {{/Prestations.1}}
+            {{^Prestations.1}}
+            <div class="menu-header-li">
+                <a class="principal-item-menu" href="{{Prestations.0.UrlPrestaTemplate}}">{{^isActivity}}{{ResourcesTemplate.Offers_MenuTitle}}{{/isActivity}}{{#isActivity}}{{ResourcesTemplate.Offers_MenuTitle_5}}{{/isActivity}}</a>
+            </div>
+            {{/Prestations.1}}
+            {{/HasPrestas}}
+            {{/HasGroupesPrestations}}
+            {{/IsRestaurant}}
+            {{#IsRestaurant}}
+            {{#HasPrestas}}
+            {{#Prestations.0}}
+            <div class="menu-header-li">
+                <a class="principal-item-menu" href="{{UrlPrestaTemplate}}">{{ResourcesTemplate.CarteMenus}}</a>
+            </div>
+            {{/Prestations.0}}
+            {{/HasPrestas}}
+            {{/IsRestaurant}}
+
+            {{#HasSpecialOffers}}
+            <div class="menu-header-li">
+                <a class="principal-item-menu" href="{{UrlSpecialOffers}}">{{ResourcesTemplate.pageMenuTitle_special-offers}}</a>
+            </div>
+            {{/HasSpecialOffers}}
+
+            <div class="logo logo-w">
+                <a class="logo-top {{^HasLogo}} logo-text{{/HasLogo}}" href="{{UrlRoot}}">
+                    {{#HasLogo}}<img class="logo-header" src="{{LogoUrl}}" alt="{{CustomTitle}}">{{/HasLogo}}
+                    {{^HasLogo}}<span class="title">{{CustomTitle}}<sup class="rating-stars">{{{Rating}}}</sup></span>{{/HasLogo}}
+                </a>
+            </div>
+
+            {{#HasBookingActivated}}
+            {{#HasGiftsActivated}}
+            <div class="menu-header-li">
+                <a class="principal-item-menu" href="{{UrlGifts}}">{{ResourcesTemplate.GiftsTitle}}</a>
+            </div>
+            {{/HasGiftsActivated}}
+            {{/HasBookingActivated}}
+
+            {{#HasNews}}
+            <div class="menu-header-li">
+                <a class="principal-item-menu" href="{{UrlNews}}">{{ResourcesTemplate.pageMenuTitle_news}}</a>
+            </div>
+            {{/HasNews}}
+
+            {{#HasRecommandations}}
+            <div class="menu-header-li">
+                <a class="principal-item-menu" href="{{UrlAround}}">{{ResourcesTemplate.pageMenuTitle_around}}</a>
+            </div>
+            {{/HasRecommandations}}
+
+        </div>
+
+        <div class="navbar-toggler navbar-toggler-other-pages">
+            <div class="btn-menu">{{ResourcesTemplate.Menu}}</div>
+        </div>
+
+        <div class="lang-and-resa-desktop">
+            {{#HasOtherLangs}}
+            <div class="dropdown languages menu-not-fixed languages-desktop">
+                <div class="dropdown-div" data-toggle="dropdown">
+                    <i class="fa fa-globe"></i>
+                </div>
+                <ul class="dropdown-menu">
+                    {{#Langs}}
+                    <li><a href="{{UrlLang}}" lang="{{IsoLang}}"><div class="flag">{{IsoLang}}</div></a></li>
+                    {{/Langs}}
+                </ul>
+            </div>
+            {{/HasOtherLangs}}
+
+            {{#HasBookingActivated}}
+            <a class="resa-desktop" href="{{UrlOnlineBooking}}"><i class="las la-calendar-check"></i></a>
+            {{/HasBookingActivated}}
+        </div>
+
+    </div>
+</header>
+
+<!-- NAV MOBILE -->
+<nav class="mobile-nav">
+    <ul class="menu menu-mobile">
+        {{#HasPages}}
+        <li class="clic-sub-menu">
+            <a href="#">{{ResourcesTemplate.discover}}</a>
+            <ul class="sub-menu">
+                {{#Pages}}
+                <li><a href="{{UrlPageTemplate}}">{{TitlePage}}</a></li>
+                {{/Pages}}
+            </ul>
+        </li>
+        {{/HasPages}}
+        {{#HasGroupesPrestations}}
+        <li class="clic-sub-menu">
+            <a href="#">{{^isActivity}}{{ResourcesTemplate.Offers_MenuTitle}}{{/isActivity}}{{#isActivity}}{{ResourcesTemplate.Offers_MenuTitle_5}}{{/isActivity}}</a>
+            <ul class="sub-menu">
+                {{#ViewAllOffers}}
+                <li><a href="{{UrlOffers}}">{{^isActivity}}{{ResourcesTemplate.Offers_ViewAll}}{{/isActivity}}{{#isActivity}}{{ResourcesTemplate.SeeAllOurActivities}}{{/isActivity}}</a> </li>
+                {{/ViewAllOffers}}
+                {{#GroupesPrestations}}
+                <li><a href="{{UrlGroupe}}">{{TitreGroupe}}</a></li>
+                {{/GroupesPrestations}}
+            </ul>
+        </li>
+        {{/HasGroupesPrestations}}
+        {{^IsRestaurant}}
+        {{^HasGroupesPrestations}}
+        {{#HasPrestas}}
+        {{#Prestations.1}}
+        <li class="clic-sub-menu">
+            <a href="#">{{^isActivity}}{{ResourcesTemplate.Offers_MenuTitle}}{{/isActivity}}{{#isActivity}}{{ResourcesTemplate.Offers_MenuTitle_5}}{{/isActivity}}</a>
+            <ul class="sub-menu">
+                {{#ViewAllOffers}}
+                <li><a href="{{UrlOffers}}">{{^isActivity}}{{ResourcesTemplate.Offers_ViewAll}}{{/isActivity}}{{#isActivity}}{{ResourcesTemplate.SeeAllOurActivities}}{{/isActivity}}</a> </li>
+                {{/ViewAllOffers}}
+                {{#Prestations}}
+                <li><a href="{{UrlPrestaTemplate}}">{{TitrePresta}}</a></li>
+                {{/Prestations}}
+            </ul>
+        </li>
+        {{/Prestations.1}}
+        {{^Prestations.1}}
+        <li>
+            <a href="{{Prestations.0.UrlPrestaTemplate}}">{{^isActivity}}{{ResourcesTemplate.Offers_MenuTitle}}{{/isActivity}}{{#isActivity}}{{ResourcesTemplate.Offers_MenuTitle_5}}{{/isActivity}}</a>
+        </li>
+        {{/Prestations.1}}
+        {{/HasPrestas}}
+        {{/HasGroupesPrestations}}
+        {{/IsRestaurant}}
+        {{#IsRestaurant}}
+        {{#HasPrestas}}
+        {{#Prestations.0}}
+        <li>
+            <a href="{{UrlPrestaTemplate}}">{{ResourcesTemplate.CarteMenus}}</a>
+        </li>
+        {{/Prestations.0}}
+        {{/HasPrestas}}
+        {{/IsRestaurant}}
+        {{#HasSpecialOffers}}
+        <li>
+            <a href="{{UrlSpecialOffers}}">{{ResourcesTemplate.pageMenuTitle_special-offers}}</a>
+        </li>
+        {{/HasSpecialOffers}}
+        {{#HasBookingActivated}}
+        {{#HasGiftsActivated}}
+        <li>
+            <a href="{{UrlGifts}}">{{ResourcesTemplate.GiftsTitle}}</a>
+        </li>
+        {{/HasGiftsActivated}}
+        {{/HasBookingActivated}}
+        {{#HasRecommandations}}
+        <li>
+            <a href="{{UrlAround}}">{{ResourcesTemplate.pageMenuTitle_around}}</a>
+        </li>
+        {{/HasRecommandations}}
+        {{#HasNews}}
+        <li>
+            <a href="{{UrlNews}}">{{ResourcesTemplate.pageMenuTitle_news}}</a>
+        </li>
+        {{/HasNews}}
+        {{#FeaturedPage}}
+        <li>
+            <a href="{{UrlPageTemplate}}">{{TitlePage}}</a>
+        </li>
+        {{/FeaturedPage}}
+        <li>
+            <a href="{{UrlContact}}">{{ResourcesTemplate.Contact}}</a>
+        </li>
+    </ul>
+</nav>
+{{/Header}}
+
+{{< Calendar}}
+<section class="section">
+    <div class="content-section">
+
+        <div class="section-title">
+            <h2>{{ResourcesTemplate.AvailabilityTitle}}</h2>
+        </div>
+
+        <div class="calendars">
+            <div class="avail-calendar-w">
+                <div class="calendar-container">
+                    <div id="datepicker2"></div>
+                </div>
+            </div>
+            <div class="calendar_status">
+                <div>
+                    <div class="green-dispo">-</div>
+                    <span>{{ResourcesTemplate.Available}}</span>
+                </div>
+                <div>
+                    <div class="red-no-dispo">-</div>
+                    <span class="not-available">{{ResourcesTemplate.NotAvailable}}</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+{{/Calendar}}
+
+{{< Newsletter2}}
+<div class="section-newsletter">
+    <div class="bg-img" style="background: url({{Url}}/img/raisin-newsletter.png) no-repeat center; background-size: cover !important;">
+        <div class="opacity-2">
+
+            <div class="newsletter-content">
+
+                <div class="section-title">
+                    <h2>{{ResourcesTemplate.SubscribeNewsletter}}!</h2>
+                </div>
+
+                <form id="Nl-form-footer" action="" method="GET" class="form-inline form-newsletter">
+                    <input id="Nl-footer-email" name="Nl-footer-email" type="email" placeholder="{{ResourcesTemplate.YourEmail}}" class="form-control" data-error="{{ResourcesTemplate.EmailError}}" required>
+                   
+                    <button id="Nl-footer-submit" class="pull-right" type="button">{{ResourcesTemplate.SendSolo}}</button>
+
+                    <div class="hp">
+                        <label>Si vous �tes un humain, laissez ce champ vide</label>
+                        <input type="text" name="comment" id="Hp-footer">
+                    </div>
+                    <p id="Nl-footer-result" class="form-result hidden"></p>
+                    <div id="blockCaptcha" class="d-none hcaptcha"> </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+{{/Newsletter2}}
+
+{{< Footer}}
+<footer class="section-footer">
+
+    <div class="bubbles-container"></div>
+
+    {{#HasAlcoolWarning}}
+    <div class="alcool-warning">
+        <span>{{ResourcesTemplate.AlcoolWarning}}</span>
+    </div>
+    {{/HasAlcoolWarning}}
+
+    <div class="content-footer">
+
+        <div class="social-medias-and-title">
+
+            {{#HasSocialNetworks}}
+            <div class="social-medias-footer">
+                {{#TikTok}}<a href="{{TikTok}}" target="_blank"><i class="fab fa-tiktok"></i></a>{{/TikTok}}
+                {{#Facebook}}<a href="{{Facebook}}" target="_blank"><i class="lab la-facebook-f"></i></a>{{/Facebook}}
+                {{#Twitter}}<a href="{{Twitter}}" target="_blank"><i class="lab la-twitter"></i></a>{{/Twitter}}
+                {{#Pinterest}}<a href="{{Pinterest}}" target="_blank"><i class="lab la-pinterest"></i></a>{{/Pinterest}}
+                {{#Youtube}}<a href="{{Youtube}}" target="_blank"><i class="lab la-youtube"></i></a>{{/Youtube}}
+                {{#Instagram}}<a href="{{Instagram}}" target="_blank"><i class="lab la-instagram"></i></a>{{/Instagram}}
+                {{#Vimeo}}<a href="{{Vimeo}}" target="_blank"><i class="lab la-vimeo"></i></a>{{/Vimeo}}
+                {{#Linkedin}}<a href="{{Linkedin}}" target="_blank"><i class="lab la-linkedin-in"></i></a>{{/Linkedin}}
+            </div>
+            {{/HasSocialNetworks}}
+
+            <div class="logo">
+                <a class="logo-footer {{^HasLogo}} logo-text{{/HasLogo}}" href="{{UrlRoot}}">
+                    {{#HasLogo}}<img src="{{LogoUrl}}" alt="{{CustomTitle}}">{{/HasLogo}}
+                    {{^HasLogo}}
+                    <div class="title">
+                        <div class="name-title-footer">{{CustomTitle}}<sup class="rating-stars">{{{Rating}}}</sup></div>
+
+                    </div>
+                    {{/HasLogo}}
+                </a>
+            </div>
+
+        </div>
+
+        <div class="address-and-legal-cgv">
+
+            <div class="address-footer">
+                <div class="address-footer-center">
+                    <span class="title-in-address-footer">{{CustomTitle}}<sup class="rating-stars">{{{Rating}}}</sup></span>
+
+                    <span>{{AddressLine}},</span>
+
+                    <span>{{PostalCode}}, {{City}}, {{Country}}</span>
+                </div>
+            </div>
+
+            <div class="legal-cgv-copy">
+                <a href="{{UrlLegalNotice}}">{{ResourcesTemplate.pageMenuTitle_legal-notice}}</a>
+
+                <a href="{{UrlTermsOfSales}}">{{ResourcesTemplate.pageMenuTitle_terms-of-sales}}</a>
+
+                <p class="copyright">
+                    {{ResourcesTemplate.Copyright}} {{CustomTitle}}<sup class="rating-stars">{{{Rating}}}</sup>
+
+                    <span class="trait-vertical">|</span>
+
+                    {{ResourcesTemplate.PoweredBy}} <a href="http://www.elloha.com/fr/" target="_blank"><img src="https://static.elloha.com/webgen/img/elloha-white.png" alt="logo-elloha"></a>
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="scroll-holder text-center">
+        <a href="javascript:" id="scroll-to-top"><i class="las la-arrow-down"></i></a>
+    </div>
+</footer>
+{{/Footer}}

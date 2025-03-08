@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="{{CurrentLang.IsoLang}}" culture="{{CurrentLang.CultureLang}}">
+<head>
+    <title>{{ResourcesTemplate.Offers_MenuTitle}} - {{CustomTitle}} - {{City}} - {{Country}}</title>
+    <meta name="description" content="{{CustomTitle}} - {{ResourcesTemplate.Offers_OurOffers}}">
+    {{>CommonMetaTags}}
+    <link rel="canonical" href="{{UrlOffers}}" />
+    <meta property="og:url" content="{{UrlOffers}}" />
+    <meta property="og:title" content="{{^isActivity}}{{ResourcesTemplate.Offers_MenuTitle}}{{/isActivity}}{{#isActivity}}{{/isActivity}}" />
+    <meta property="og:image" content="{{#Photos.0}}{{UrlMedias}}/crop-300x200/{{IdMedia}}/{{FileNamePhoto}}{{/Photos.0}}" />
+    <meta property="og:description" content="{{CustomTitle}} - {{ResourcesTemplate.Offers_OurOffers}}" />
+    {{>FaviconTags}}
+    {{>CommonStylesheets}}
+</head>
+<body>
+    {{{ScriptAnalytics}}}
+    {{{GoogleTagManagerBody}}}
+    {{>Header}}
+
+    <main>
+        <!-- SECTION BANNER -->
+        <section class="section-banner">
+            <div class="content-section">
+
+                {{^isActivity}}
+                <h1 class="big-title">{{ResourcesTemplate.Offers_OurOffers_2}}</h1>
+                {{/isActivity}}
+                {{#isActivity}}
+                <h1 class="big-title">{{ResourcesTemplate.Offers_OurOffers_5}}</h1>
+                {{/isActivity}}
+
+            </div>
+        </section>
+
+        <!-- SECTION TOUTES OFFRES -->
+        <section class="section section-all-offers">
+            <div class="content-section">
+
+                <div class="prestas-big-contain">
+                    {{#Prestations}}
+                    <div class="presta-contain">
+                        {{#PhotosPresta.0}}
+                        <img class="bg-img img-in-offers" src="{{UrlMedias}}/crop-900x700/{{IdMedia}}/{{FileNamePhoto}}" alt="{{NamePhoto}}">
+                        {{/PhotosPresta.0}}
+
+                        <div class="infos-contain">
+                            <h2><a href="{{UrlPrestaTemplate}}" itemprop="url">{{TitrePresta}}</a></h2>
+
+                            {{#DescriptionPresta}}
+                            <div class="description-presta">{{{DescriptionPresta}}}</div>
+                            {{/DescriptionPresta}}
+
+
+                            {{#MinPricePresta}}
+                            <div class="saw-prices {{^IsRestaurant}}{{#isActivity}}saw-with-time{{/isActivity}}{{/IsRestaurant}}">
+                                {{^IsRestaurant}}
+                                {{#isActivity}}
+                                {{#DurationPresta}}
+                                <div class="infos-base-line">
+                                    <i class="las la-clock"></i>
+                                    <div>{{DurationResume}}</div>
+                                </div>
+                                {{/DurationPresta}}
+                                {{/isActivity}}
+                                {{/IsRestaurant}}
+
+                                <div>
+                                    <span class="price-begin"><strong>{{ResourcesTemplate.PriceFrom}}</strong></span>
+                                    <span class="presta-price">
+                                        <span class="price-price"><strong>{{MinPricePresta}}{{CurrencySymbol}}</strong></span>{{^isActivity}}<strong> /{{ResourcesTemplate.Night}}</strong>{{/isActivity}}
+                                    </span>
+                                </div>
+                            </div>
+                            {{/MinPricePresta}}
+                        </div>
+                    </div>
+                    {{/Prestations}}
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    {{>Footer}}
+    {{>CommonScripts}}
+    
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="{{CurrentLang.IsoLang}}" culture="{{CurrentLang.CultureLang}}">
+<head>
+    <title>{{ResourcesTemplate.pageMenuTitle_Gifts}} - {{CustomTitle}} - {{City}} - {{Country}}</title>
+    <meta name="description" content="{{ResourcesTemplate.GiftCard}}">
+    {{>CommonMetaTags}}
+    <link rel="canonical" href="{{UrlGifts}}" />
+    <meta property="og:url" content="{{UrlGifts}}" />
+    <meta property="og:title" content="{{ResourcesTemplate.pageMenuTitle_Gifts}}" />
+    <meta property="og:image" content="{{#Photos.0}}{{UrlMedias}}/crop-300x200/{{IdMedia}}/{{FileNamePhoto}}{{/Photos.0}}" />
+    <meta property="og:description" content="{{ResourcesTemplate.GiftCard}}" />
+    {{>FaviconTags}}
+    {{>CommonStylesheets}}
+    {{#HasBookingActivated}}{{>ScriptCalendarClick}}{{/HasBookingActivated}}
+</head>
+<body>
+    {{{ScriptAnalytics}}}
+    {{{GoogleTagManagerBody}}}
+    {{>Header}}
+
+    <main>
+        <!-- SECTION BANNER -->
+        <section class="section-banner">
+            <div class="content-section">
+
+                <h1 class="big-title">{{ResourcesTemplate.ToOffer}}</h1>
+
+            </div>
+        </section>
+
+        <!-- SECTION CADEAUX -->
+        {{#HasBookingActivated}}
+        {{#HasGiftsActivated}}
+        <section class="section section-gifts-in-gifts">
+            <div class="content-section">
+
+                {{#HasGiftVouchersActivated}}
+                <!-- SECTION CHEQUES CADEAUX -->
+                <div class="section-gifts section-giftcards-in-gifts">
+
+                    <h2>{{ResourcesTemplate.GiftCardOffer}}</h2>
+
+                    <div class="all-prices-vouchers">
+                        {{#GiftVouchers}}
+                        <a id="#voucher-{{Id}}" href="#voucher-{{Id}}" class="voucher-link">{{AmountGiftVoucher}} {{CurrencySymbol}}</a>
+                        {{/GiftVouchers}}
+                    </div>
+
+                    <div class="gifts-big-contain-in-gifts owl-carousel owl-theme slider-vouchers">
+                        {{#GiftVouchers}}
+                        <div id="voucher-{{Id}}" class="presta-contain presta-contain-gifts presta-contain-gifts-voucher">
+                            {{#PhotoGiftVoucher}}
+                            <img class="bg-img" src="{{UrlMedias}}/crop-900x600/{{IdMedia}}/{{FileNamePhoto}}" alt="{{NamePhoto}}">
+                            {{/PhotoGiftVoucher}}
+                            {{^PhotoGiftVoucher}}
+                            <img class="bg-img" src="https://static.elloha.com/webgen/img/giftcard.jpg" alt="{{NamePhoto}}">
+                            {{/PhotoGiftVoucher}}
+
+                            <div class="infos-contain">
+                                <h3>{{ResourcesTemplate.GiftVoucher}}</h3>
+
+                                <div class="gift-amount-and-btn">
+                                    <div class="gift-amount">
+                                        <div class="gift-price">{{AmountGiftVoucher}}{{CurrencySymbol}}</div>
+                                    </div>
+
+                                    <a href="{{{UrlBECustom}}}/Search/Index/{{IdPubBe}}?idoi={{IdOi}}&searchFirstAvailableDates=1&culture={{CurrentLang.CultureLang}}&forcedTemplate={{UrlTemplateBE}}" itemprop="url" class="btn-contain">
+                                        <span class="btn">{{ResourcesTemplate.Buy}}</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        {{/GiftVouchers}}
+                    </div>
+
+                </div>
+                {{/HasGiftVouchersActivated}}
+
+                {{#HasGiftCardsActivated}}
+                <!-- SECTION CARTES CADEAUX -->
+                <div class="section-gifts section-giftcards-in-gifts">
+
+                    <h2>{{ResourcesTemplate.GiftCardOffer}}</h2>
+
+                    <div class="gifts-big-contain-in-gifts">
+                        {{#GiftCards}}
+                        <div class="presta-contain presta-contain-gifts">
+                            {{#PhotoGiftCard}}
+                            <img class="bg-img" src="{{UrlMedias}}/crop-900x600/{{IdMedia}}/{{FileNamePhoto}}" alt="{{NamePhoto}}">
+                            {{/PhotoGiftCard}}
+                            {{^PhotoGiftCard}}
+                            <img class="bg-img" src="https://static.elloha.com/webgen/img/giftcard.jpg" alt="{{NamePhoto}}">
+                            {{/PhotoGiftCard}}
+
+                            <div class="infos-contain">
+                                <h3>{{ResourcesTemplate.GiftCardSolo}}</h3>
+
+                                <div class="gift-amount-and-btn">
+                                    <div class="gift-amount">
+                                        <div class="gift-price">{{AmountGiftCard}}{{CurrencySymbol}}</div>
+                                    </div>
+
+                                    <a href="{{{UrlBECustom}}}/Search/Index/{{IdPubBe}}?idoi={{IdOi}}&searchFirstAvailableDates=1&culture={{CurrentLang.CultureLang}}&forcedTemplate={{UrlTemplateBE}}" itemprop="url" class="btn-contain">
+                                        <span class="btn">{{ResourcesTemplate.Buy}}</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        {{/GiftCards}}
+                    </div>
+
+                </div>
+                {{/HasGiftCardsActivated}}
+
+            </div>
+        </section>
+        {{/HasGiftsActivated}}
+        {{/HasBookingActivated}}
+
+        <!-- SECTION NEWSLETTER -->
+        {{#HasNewsletterActivated}}
+        {{>Newsletter2}}
+        {{/HasNewsletterActivated}}
+    </main>
+
+    {{>Footer}}
+    {{>CommonScripts}}
+    
+</body>
+</html>

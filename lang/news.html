@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="{{CurrentLang.IsoLang}}" culture="{{CurrentLang.CultureLang}}">
+<head>
+    <title>{{ResourcesTemplate.NewsPageTitle}} - {{CustomTitle}} - {{City}} - {{Country}}</title>
+    <meta name="description" content="{{MetaDescriptionNews}}">
+    {{>CommonMetaTags}}
+    <link rel="canonical" href="{{UrlNews}}" />
+    <meta property="og:url" content="{{UrlNews}}" />
+    <meta property="og:title" content="{{ResourcesTemplate.NewsPageTitle}}" />
+    <meta property="og:image" content="{{#Photos.0}}{{UrlMedias}}/crop-300x200/{{IdMedia}}/{{FileNamePhoto}}{{/Photos.0}}" />
+    <meta property="og:description" content="{{MetaDescriptionNews}}" />
+    {{>FaviconTags}}
+    {{>CommonStylesheets}}
+</head>
+<body>
+    {{{ScriptAnalytics}}}
+    {{{GoogleTagManagerBody}}}
+    {{>Header}}
+
+    <main>
+        <!-- SECTION BANNER -->
+        <section class="section-banner">
+            <div class="content-section">
+
+                <h1 class="big-title">{{ResourcesTemplate.NewsPageTitle}}</h1>
+
+            </div>
+        </section>
+
+        <section class="section section-news">
+            <div class="content-section">
+
+                <!-- SECTION OTHERS PAGES -->
+                <div class="others-pages owl-carousel owl-theme slider-other-pages">
+                    {{#NewsList}}
+                    <a href="#{{IdNews}}">{{TitleNews}}</a>
+                    {{/NewsList}}
+                </div>
+
+                <!-- SECTION NEWS -->
+                {{#NewsList}}
+                <div class="section-page section-page-news" id="{{IdNews}}" data-pagination-item>
+                    {{#UrlYoutube}}
+                    <div class="option-youtube"><iframe src="{{UrlYoutube}}" frameborder="0" allowfullscreen></iframe></div>
+                    {{/UrlYoutube}}
+
+                    {{^UrlYoutube}}
+                    {{#ListPhotoNews.0}}
+                    {{#ListPhotoNews.1}}
+                    <div class="owl-wrapper">
+                        <div class="owl-carousel owl-theme slider-page-page">
+                            {{#ListPhotoNews}}
+                            <div class="photo-page photo-page-in-news">
+                                <img src="{{UrlMedias}}/crop-750x560/{{IdMedia}}/{{FileNamePhoto}}" alt="{{NamePhoto}}">
+                            </div>
+                            {{/ListPhotoNews}}
+                        </div>
+                    </div>
+                    {{/ListPhotoNews.1}}
+                    {{^ListPhotoNews.1}}
+                    {{#ListPhotoNews}}
+                    <div class="photo-page photo-page-in-news-solo">
+                        <img src="{{UrlMedias}}/crop-750x560/{{IdMedia}}/{{FileNamePhoto}}" alt="{{NamePhoto}}">
+                    </div>
+                    {{/ListPhotoNews}}
+                    {{/ListPhotoNews.1}}
+                    {{/ListPhotoNews.0}}
+
+                    {{^ListPhotoNews.0}}
+                    <div class="photo-page photo-page-in-news-solo">
+                        <img src="https://static.elloha.com/webgen/img/news.jpg" alt="{{NamePhoto}}">
+                    </div>
+                    {{/ListPhotoNews.0}}
+                    {{/UrlYoutube}}
+
+                    <div class="date-title-and-descrip-news">
+                        <div class="date-and-title-news">
+                            <span>{{ArticleCreatedOn}} {{DateNewsString}}</span>
+
+                            <h2>{{TitleNews}}</h2>
+                        </div>
+
+                        <div class="infos-page">
+                            <div class="description-page">{{{TextNews}}}</div>
+                        </div>
+                    </div>
+                </div>
+                {{/NewsList}}
+
+            </div>
+        </section>
+
+        <!-- SECTION NEWSLETTER -->
+        {{#HasNewsletterActivated}}
+        {{>Newsletter2}}
+        {{/HasNewsletterActivated}}
+    </main>
+
+    {{>Footer}}
+    {{>CommonScripts}}
+    
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="{{CurrentLang.IsoLang}}" culture="{{CurrentLang.CultureLang}}">
+<head>
+    <title>{{ResourcesTemplate.Around}} - {{CustomTitle}} - {{City}} - {{Country}}</title>
+    <meta name="description" content="{{SubtitleAround}}">
+    {{>CommonMetaTags}}
+    <link rel="canonical" href="{{UrlAround}}" />
+    <meta property="og:url" content="{{UrlAround}}" />
+    <meta property="og:title" content="{{ResourcesTemplate.Around}}" />
+    <meta property="og:image" content="{{#Photos.0}}{{UrlMedias}}/crop-300x200/{{IdMedia}}/{{FileNamePhoto}}{{/Photos.0}}" />
+    <meta property="og:description" content="{{SubtitleAround}}" />
+    {{>FaviconTags}}
+    {{>CommonStylesheets}}
+</head>
+<body>
+    {{{ScriptAnalytics}}}
+    {{{GoogleTagManagerBody}}}
+    {{>Header}}
+
+    <main>
+        <!-- SECTION BANNER -->
+        <section class="section-banner">
+            <div class="content-section">
+
+                <h1 class="big-title">{{ResourcesTemplate.pageMenuTitle_around}}</h1>
+
+            </div>
+        </section>
+
+        <!-- SECTION AROUND -->
+        <div class="section">
+            <div class="content-section around-items-w">
+
+                {{#OisAssocied}}
+                <div class="grid-item" data-id-type="{{IdTypeOiAssocied}}" data-type-label="{{TypeOiAssocied}}" data-lat="{{XOiAssocied}}" data-lng="{{YOiAssocied}}">
+                    <div class="around-item-w">
+
+                        <div class="around-item-img-w" style="background-image: url({{#PhotoOiAssocied}}{{UrlMedias}}/crop-1200x900/{{IdMedia}}/{{FileNamePhoto}}{{/PhotoOiAssocied}});" alt="{{NamePhoto}}">
+                            <div class="around-item-type">{{TypeOiAssocied}}</div>
+                        </div>
+
+                        <div class="around-distance-infos-and-comments">
+                            {{#DistanceOiAssocied}}
+                            <div class="around-distance">
+                                <i class="las la-map-marker"></i> {{ResourcesTemplate.At}} {{DistanceOiAssocied}} {{ResourcesTemplate.Km}} {{ResourcesTemplate.FromOurPlace}}
+                            </div>
+                            {{/DistanceOiAssocied}}
+
+                            <div class="around-item-content-w">
+                                <h3 class="around-title" data-name>{{TitleOiAssocied}}</h3>
+                                <div class="text-description">{{DescriptionOiAssocied}}</div>
+                                <div class="link-to-see see-all"><i class="las la-plus-circle"></i> {{ResourcesTemplate.ReadMore}}</div>
+                                <div class="link-to-see see-menos hidden"><i class="las la-minus-circle"></i> {{ResourcesTemplate.ShowLess}}</div>
+                            </div>
+
+                            <div class="comment-item-w {{^TextOpinion}}no-text-opinion{{/TextOpinion}}">
+                                <div class="comment-item-w-top">
+                                    {{#HasAvatar}}
+                                    <img class="user-avatar" src="{{PhotoUserUrl}}" alt="{{#DisplayUserInfos}}{{NameUser}}{{/DisplayUserInfos}}">
+                                    {{/HasAvatar}}
+                                    <div class="comment-title">{{ResourcesTemplate.WhyWeRecommand}}</div>
+                                </div>
+                                <div class="icon-to-see icon-all"><i class="las la-plus-circle"></i></div>
+                                <div class="icon-to-see icon-menos hidden"><i class="las la-minus-circle"></i></div>
+                                <div class="text-opinion d-none">{{TextOpinion}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/OisAssocied}}
+
+                <!-- SECTION MAP -->
+                <div class="section-map section-map-in-around">
+                    <div id="applemapkit" class="fullwidth-mapkit" data-lat="{{X}}" data-lng="{{Y}}" data-string="{{CustomTitle}}, {{AddressLine}}, {{PostalCode}}, {{City}}, {{Country}}.">
+                        <div id="mapApple"></div>
+                    </div>
+
+                    <div data-action="external-map" class="external-map btn-map"><i class="las la-map-marked-alt"></i></div>
+                </div>
+
+            </div>
+        </div>
+        
+    </main>
+
+    {{>Footer}}
+    {{>CommonScripts}}
+    
+</body>
+</html>
